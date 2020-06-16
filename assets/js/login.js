@@ -34,18 +34,18 @@ $(function () {
 
 
   // 验证
-  // var form = layui.form;
-  // form.verify({
-  //   pwd_len: [/^\w{6,12}$/, '密码长度必须是6到12位'],
+  var form = layui.form;
+  form.verify({
+    pwdLength: [/^\w{6,12}$/, '密码长度必须是6到12位'],
 
-  //   pwd_same: function (value) {
-  //     var password = $('#reg-password').val();
-  //     // 比较 password（密码）和value（确认密码）
-  //     if (password !== value) {
-  //       return '两次密码不一致-laotang';
-  //     }
-  //   }
-  // })
+    checkPwd: function (value) {
+      var password = $('#reg-password').val();
+      // 比较 password（密码）和value（确认密码）
+      if (password !== value) {
+        return '两次密码不一致';
+      }
+    }
+  })
 
   // 登录
   $('.login form').on('submit', function (e) {
@@ -54,13 +54,23 @@ $(function () {
 
     // console.log(11);
     var data = $(this).serialize();
-    $.post('http://www.liulongbin.top:3007/api/login', {
-      data
-    }, function (res) {
+    // console.log(data);
+    // $.ajax({
+    //   type: "POST",
+    //   url: 'http://www.liulongbin.top:3007/api/login',
+    //   data: data,
+    //   success: function (res) {
+    //     alert(res.message);
+    //     if (res.status === 0) {
+    //       location.href = '/index.html';
+    //     }
+    //   }
+    // })
+    $.post('http://www.liulongbin.top:3007/api/login', data, function (res) {
+      // console.log(res);
       alert(res.message);
-      // 成功了，跳转到index.html
       if (res.status === 0) {
-        location.href = '/index.html';
+        location.href = '/index.html'
       }
     })
   })
