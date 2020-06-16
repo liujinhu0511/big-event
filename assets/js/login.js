@@ -70,6 +70,8 @@ $(function () {
       // console.log(res);
       alert(res.message);
       if (res.status === 0) {
+        // 把服务器传回来的token保存到本地存储中
+        localStorage.setItem('token', res.token)
         location.href = '/index.html'
       }
     })
