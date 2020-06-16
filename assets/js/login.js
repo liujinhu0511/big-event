@@ -24,7 +24,8 @@ $(function () {
       url: 'http://www.liulongbin.top:3007/api/reguser',
       data: data,
       success: function (res) {
-        alert(res.message);
+        // alert(res.message);
+        layer.msg(res.message)
         if (res.status === 0) {
           $('.register').hide().prev().show();
         }
@@ -68,7 +69,8 @@ $(function () {
     // })
     $.post('http://www.liulongbin.top:3007/api/login', data, function (res) {
       // console.log(res);
-      alert(res.message);
+      // alert(res.message);
+      layer.msg(res.message);
       if (res.status === 0) {
         // 把服务器传回来的token保存到本地存储中
         localStorage.setItem('token', res.token)
