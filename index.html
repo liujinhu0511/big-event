@@ -1,3 +1,9 @@
+<!-- 如果没有token值跳转到登录页面，不能通过地址栏直接访问首页 -->
+<script>
+  if (!localStorage.getItem('token')) {
+    location.href = '/login.html'
+  }
+</script>
 <!DOCTYPE html>
 <html>
 

@@ -25,9 +25,9 @@ function getUserinfo() {
   $.ajax({
     url: 'http://www.liulongbin.top:3007/my/userinfo',
     success: function (res) {
-      let name = res.data.nickname || res.data.username;
       if (status === 0) {
         // 设置头像
+        let name = res.data.nickname || res.data.username;
         if (res.data.user_pic) {
           $('.layui-nav-img').attr('src', res.data.user_pic).show();
           $('.img-text').hide();
@@ -35,7 +35,9 @@ function getUserinfo() {
           $('.img-text').css('display', 'inline-block').text(name.substr(0, 1).toUpperCase());
           $('.layui-nav-img').hide();
         }
-
+      } else {
+        localStorage.removeItem('token');
+        location.href = '/login.html';
       }
     },
     headers: {
