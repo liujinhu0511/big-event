@@ -25,7 +25,11 @@ $(function () {
       data: data,
       success: function (res) {
         // alert(res.message);
+<<<<<<< HEAD
         layer.msg(res.message)
+=======
+        layer.msg(res.message);
+>>>>>>> index
         if (res.status === 0) {
           $('.register').hide().prev().show();
         }
@@ -55,6 +59,7 @@ $(function () {
 
     // console.log(11);
     var data = $(this).serialize();
+<<<<<<< HEAD
     // console.log(data);
     // $.ajax({
     //   type: "POST",
@@ -75,6 +80,16 @@ $(function () {
         // 把服务器传回来的token保存到本地存储中
         localStorage.setItem('token', res.token)
         location.href = '/index.html'
+=======
+    $.post('http://www.liulongbin.top:3007/api/login', data, function (res) {
+      // alert(res.message);
+      layer.msg(res.message);
+      // 成功了，跳转到index.html
+      if (res.status === 0) {
+        // 把token保存到本地存储种
+        localStorage.setItem('token', res.token)
+        location.href = '/index.html';
+>>>>>>> index
       }
     })
   })

@@ -44,3 +44,17 @@ body {
   height: 60px;
   background: url(../images/login_title.png) no-repeat center;
 }
+
+.item-ipt {
+  position: relative;
+}
+
+.item-ipt .layui-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.item-ipt .layui-input {
+  padding-left: 28px;
+}
