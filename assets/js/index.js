@@ -23,7 +23,7 @@ $(function () {
 // 定义一个加载用户信息函数
 function getUserinfo() {
   $.ajax({
-    url: 'http://www.liulongbin.top:3007/my/userinfo',
+    url: '/my/userinfo',
     success: function (res) {
       if (status === 0) {
         // 设置头像
@@ -35,13 +35,7 @@ function getUserinfo() {
           $('.img-text').css('display', 'inline-block').text(name.substr(0, 1).toUpperCase());
           $('.layui-nav-img').hide();
         }
-      } else {
-        localStorage.removeItem('token');
-        location.href = '/login.html';
       }
-    },
-    headers: {
-      Authorization: localStorage.getItem('token')
     }
   })
 }
