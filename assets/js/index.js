@@ -1,6 +1,6 @@
 $(function () {
   // 加载用户信息
-  getUserinfo()
+  getUserInfo();
 
   // 注册退出事件
   $('#exit').on('click', function () {
@@ -21,11 +21,11 @@ $(function () {
 })
 
 // 定义一个加载用户信息函数
-function getUserinfo() {
+function getUserInfo() {
   $.ajax({
     url: '/my/userinfo',
     success: function (res) {
-      if (status === 0) {
+      if (res.status === 0) {
         // 设置头像
         let name = res.data.nickname || res.data.username;
         if (res.data.user_pic) {
