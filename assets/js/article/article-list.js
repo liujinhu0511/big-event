@@ -9,7 +9,7 @@ $(function () {
       url: '/my/article/list',
       data: {
         pagenum: 1,
-        pagesize: 2
+        pagesize: 10
       },
       success: function (res) {
         if (res.status === 0) {
